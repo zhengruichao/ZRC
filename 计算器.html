@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简易计算器</title>
+</head>
+<body>
+    <center>
+        <table>
+        <tr>
+            <td><h1>计算器</h1></td>
+        </tr>
+        </table>
+    <table>
+        <form name="tt">
+            <tr>
+                <td>第一个数 </td><td colspan="3"><input type="text" name="t1" size="25"></td>
+            </tr>
+            <tr>
+                <td>第二个数 </td><td colspan="3"><input type="text" name="t2" size="25"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="    +    " onclick="compute('+')"></td>
+                <td><input type="button" value="    -    " onclick="compute('-')"></td>
+                <td><input type="button" value="    *    " onclick="compute('*')"></td>
+                <td><input type="button" value="    ÷    " onclick="compute('/')"></td>
+            </tr>
+            <tr><td>计算结果</td>
+                <td colspan="3"><input type="text" name="txtresult" size="25"></td>
+            </tr>
+        </form>
+    </table>
+    <script>
+        function compute(obj){
+            var num1,num2,result;
+            num1 = parseFloat(document.tt.t1.value);
+            num2 = parseFloat(document.tt.t2.value);
+            switch(obj){
+                case "+":
+                result = num1 + num2;
+                break;
+                case "-":
+                result = num1 - num2;
+                break;
+                case "*":
+                result = num1 * num2;
+                break;
+                case "/":
+                if(num2!=0)
+                result = num1 / num2;
+                else
+                result = "除数不能为0，请重新输入!";
+                break;
+            }
+            document.tt.txtresult.value=result;
+        }
+    </script>
+    
+    </center>
+</body>
+</html>
